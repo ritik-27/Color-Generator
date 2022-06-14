@@ -200,7 +200,7 @@ input {
   text-transform: capitalize;
   color: var(--clr-white);
   cursor: pointer;
-  visibility: hidden;
+  display: none;
 }
 
 @media screen and (max-width: 576px) {
@@ -209,8 +209,22 @@ input {
   }
 
   input,
-  .btn {
+  .btn, .otherbtn {
     font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width:977px) {
+  input,
+    .btn, .otherbtn {
+    font-size: 0.75rem;
+    margin-top: 5px;
+  }
+}
+@media screen and (max-width:416px) {
+  .otherbtn {
+    font-size: 0.4rem;
+    margin-top: 3px;
   }
 }
 

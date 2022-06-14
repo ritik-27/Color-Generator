@@ -25,14 +25,14 @@ function App() {
 
   const handleMore = () => {
     let more = document.getElementById('more')
-    more.style.visibility = 'visible';
+    more.style.display = 'inline'
     setValue(value - 1)
     console.log('more button is cliked');
   }
 
   const handleLess = () => {
     let less = document.getElementById('less');
-    less.style.visibility = 'visible';
+    less.style.display = 'inline'
     setValue(value + 5)
     console.log('less button is cliked');
   }
