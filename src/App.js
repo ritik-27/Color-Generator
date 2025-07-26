@@ -7,7 +7,7 @@ function App() {
   const [value, setValue] = useState(10)
   const [color, setColor] = useState('');
   const [error, setError] = useState(false)
-  const [list, setList] = useState(new Values('#f15796').all(value))
+  const [list, setList] = useState(new Values('#00CED1').all(value))
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,14 +27,12 @@ function App() {
     let more = document.getElementById('more')
     more.style.display = 'inline'
     setValue(value - 1)
-    console.log('more button is cliked');
   }
 
   const handleLess = () => {
     let less = document.getElementById('less');
     less.style.display = 'inline'
     setValue(value + 5)
-    console.log('less button is cliked');
   }
 
   return (
@@ -44,9 +42,9 @@ function App() {
         <form onSubmit={handleSubmit}>
           <input type="text"
             className={`${error ? 'error' : null}`}
-            placeholder='#f15796'
+            placeholder='#00FFFF'
             value={color}
-            onChange={(e) => setColor(e.target.value)} />
+            onChange={(e) => setColor(e.target.value) && setError(false)} />
 
           <button className='btn' type="submit">submit</button>
           <button id='more' disabled={value < 2} className="otherbtn" onClick={handleMore} >More Shades</button>
@@ -56,7 +54,7 @@ function App() {
       </section>
       <section className='colors'>
         {list.map((color, index) => {
-          return <SingleColor key={index} {...color} hexColor={color.hex} index={index} />
+          return <SingleColor key={index} {...color} hex={color.hex} index={index} />
         })}
       </section>
     </>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-const SingleColor = ({ weight, hexColor, index }) => {
+const SingleColor = ({ weight, hex, index }) => {
     const [alert, setAlert] = useState(false);
+    const hexValue = `#${hex}`
 
     useEffect(() => {
         const timeout = setTimeout(() => {
@@ -16,15 +17,14 @@ const SingleColor = ({ weight, hexColor, index }) => {
 
     return (
         <>
-            {/*Note this background color can be given hex value too*/}
-            <article className={`color ${index > 10 && 'color-light'}`} style={{ backgroundColor: `#${hexColor}` }}
+            <article className={`color ${index > 10 && 'color-light'}`} style={{ backgroundColor: `${hexValue}` }}
                 onClick={() => {
                     setAlert(true)
-                    navigator.clipboard.writeText(`#${hexColor}`)  //Note to copy text to the clipboard we use navigator.clipboard.writetext()
+                    navigator.clipboard.writeText(`${hexValue}`)  //Note to copy text to the clipboard we use navigator.clipboard.writetext()
                 }}
             >
                 <p className="percent-value">{weight}%</p>
-                <p className="color-value">#{hexColor}</p>
+                <p className="color-value">{hexValue}</p>
                 {alert && <p className='alert'>
                     Copied to Clipboard
                 </p>}
